@@ -1,12 +1,11 @@
 version: '3'
 services:
-  postgres:
+  db:
     image: postgres:latest
     restart: always
     environment:
-      POSTGRES_USER: dt22
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: messages
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432" 
     volumes:
@@ -19,6 +18,4 @@ services:
     depends_on:
       - postgres
     ports:
-      - "3000:3000" # Map the container's port 3000 to the host machine's port 3000
-    environment:
-      DATABASE_URL: postgres://dt22:1234@postgres:5432/messages # Connection string to PostgreSQL
+      - "3000:3000"

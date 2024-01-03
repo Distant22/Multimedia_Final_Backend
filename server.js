@@ -8,8 +8,12 @@ const server = http.createServer(app);
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
+  user: 'postgres',
+  host: 'db',
+  database: 'postgres',
+  password: 'postgres',
+  port: 3211,
+})
 
 pool.query('SELECT NOW()', (err, res) => {
   if (err) {
