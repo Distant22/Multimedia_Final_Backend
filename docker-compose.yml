@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  postgresql:
+    image: postgres:latest
+    container_name: postgresql
+    environment:
+      POSTGRES_DB: messages
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: test1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init-scripts:/docker-entrypoint-initdb.d
+
+  express-app:
+    build:
+      context: .
+      dockerfile: Dockerfile  
+    ports:
+      - "8081:8080" 
+    depends_on:
+      - postgresql

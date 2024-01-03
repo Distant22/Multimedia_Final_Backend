@@ -1,0 +1,64 @@
+2023-12-29 10:44:50.053 CST [2808] LOG:  starting PostgreSQL 15.5 (Homebrew) on aarch64-apple-darwin22.6.0, compiled by Apple clang version 14.0.3 (clang-1403.0.22.14.1), 64-bit
+2023-12-29 10:44:50.054 CST [2808] LOG:  listening on IPv6 address "::1", port 5432
+2023-12-29 10:44:50.054 CST [2808] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-12-29 10:44:50.055 CST [2808] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2023-12-29 10:44:50.056 CST [2811] LOG:  database system was shut down at 2023-12-29 10:44:44 CST
+2023-12-29 10:44:50.058 CST [2808] LOG:  database system is ready to accept connections
+2023-12-29 10:44:59.710 CST [2826] FATAL:  role "postgres" does not exist
+2023-12-29 10:45:02.346 CST [2842] FATAL:  role "postgres" does not exist
+2023-12-29 10:46:06.984 CST [2882] FATAL:  role "postgres" does not exist
+2023-12-29 10:49:45.727 CST [3252] FATAL:  database "wangxingyuan" does not exist
+2023-12-29 10:49:50.057 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 10:49:54.531 CST [2809] LOG:  checkpoint complete: wrote 47 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.467 s, sync=0.002 s, total=4.474 s; sync files=11, longest=0.001 s, average=0.001 s; distance=272 kB, estimate=272 kB
+2023-12-29 10:51:23.145 CST [3263] FATAL:  role "postgres" does not exist
+2023-12-29 10:54:11.286 CST [3405] ERROR:  syntax error at or near "psql" at character 1
+2023-12-29 10:54:11.286 CST [3405] STATEMENT:  psql -U Dt22 -d message;
+2023-12-29 10:54:18.998 CST [3405] ERROR:  syntax error at or near "psql" at character 1
+2023-12-29 10:54:18.998 CST [3405] STATEMENT:  psql -U Dt22 -d message;
+2023-12-29 10:54:34.305 CST [3431] FATAL:  role "Dt22" does not exist
+2023-12-29 10:54:50.532 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 10:54:51.367 CST [3440] FATAL:  role "Dt22" does not exist
+2023-12-29 10:55:21.193 CST [3459] ERROR:  syntax error at or near "psql" at character 1
+2023-12-29 10:55:21.193 CST [3459] STATEMENT:  psql -U Dt22 -d message;
+2023-12-29 10:55:28.644 CST [3459] ERROR:  unrecognized configuration parameter "databases"
+2023-12-29 10:55:28.644 CST [3459] STATEMENT:  SHOW DATABASES;
+2023-12-29 10:56:26.237 CST [2809] LOG:  checkpoint complete: wrote 946 buffers (5.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=95.691 s, sync=0.010 s, total=95.706 s; sync files=307, longest=0.001 s, average=0.001 s; distance=4293 kB, estimate=4293 kB
+2023-12-29 10:58:35.409 CST [3592] FATAL:  role "Dt22" does not exist
+2023-12-29 10:59:26.452 CST [3619] FATAL:  role "postgres" does not exist
+2023-12-29 10:59:50.240 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 10:59:55.115 CST [2809] LOG:  checkpoint complete: wrote 49 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.867 s, sync=0.005 s, total=4.876 s; sync files=41, longest=0.001 s, average=0.001 s; distance=155 kB, estimate=3879 kB
+2023-12-29 11:01:53.241 CST [3722] ERROR:  permission denied for table messages
+2023-12-29 11:01:53.241 CST [3722] STATEMENT:  INSERT INTO messages (room_id, text, sender) VALUES ($1, $2, $3)
+2023-12-29 11:02:43.828 CST [3752] ERROR:  relation "messages" does not exist
+2023-12-29 11:02:43.828 CST [3752] STATEMENT:  GRANT INSERT ON TABLE messages TO dt22
+	;
+2023-12-29 11:03:09.655 CST [3775] ERROR:  permission denied for sequence messages_id_seq
+2023-12-29 11:03:09.655 CST [3775] STATEMENT:  INSERT INTO messages (room_id, text, sender) VALUES ($1, $2, $3)
+2023-12-29 11:04:15.746 CST [3811] FATAL:  database "messages" does not exist
+2023-12-29 11:04:50.116 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 11:04:51.650 CST [2809] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.528 s, sync=0.002 s, total=1.535 s; sync files=13, longest=0.001 s, average=0.001 s; distance=12 kB, estimate=3493 kB
+2023-12-29 11:09:50.651 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 11:09:50.960 CST [2809] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.306 s, sync=0.001 s, total=0.310 s; sync files=4, longest=0.001 s, average=0.001 s; distance=1 kB, estimate=3143 kB
+2023-12-29 11:19:50.963 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 11:19:51.277 CST [2809] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.307 s, sync=0.002 s, total=0.315 s; sync files=4, longest=0.001 s, average=0.001 s; distance=1 kB, estimate=2829 kB
+2023-12-29 11:34:50.280 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 11:34:50.592 CST [2809] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.306 s, sync=0.001 s, total=0.313 s; sync files=4, longest=0.001 s, average=0.001 s; distance=1 kB, estimate=2546 kB
+2023-12-29 11:39:50.593 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 11:39:50.900 CST [2809] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.304 s, sync=0.001 s, total=0.308 s; sync files=4, longest=0.001 s, average=0.001 s; distance=3 kB, estimate=2292 kB
+2023-12-29 11:44:50.900 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 11:44:51.209 CST [2809] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.305 s, sync=0.001 s, total=0.310 s; sync files=4, longest=0.001 s, average=0.001 s; distance=2 kB, estimate=2063 kB
+2023-12-29 11:47:34.045 CST [5032] FATAL:  database "messages" does not exist
+2023-12-29 11:49:50.211 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 11:49:50.930 CST [2809] LOG:  checkpoint complete: wrote 8 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.713 s, sync=0.001 s, total=0.720 s; sync files=8, longest=0.001 s, average=0.001 s; distance=11 kB, estimate=1858 kB
+2023-12-29 11:54:50.931 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 11:54:51.856 CST [2809] LOG:  checkpoint complete: wrote 10 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.918 s, sync=0.002 s, total=0.926 s; sync files=10, longest=0.001 s, average=0.001 s; distance=61 kB, estimate=1678 kB
+2023-12-29 11:59:50.857 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 11:59:51.168 CST [2809] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.306 s, sync=0.001 s, total=0.311 s; sync files=4, longest=0.001 s, average=0.001 s; distance=2 kB, estimate=1511 kB
+2023-12-29 12:04:50.169 CST [2809] LOG:  checkpoint starting: time
+2023-12-29 12:04:50.478 CST [2809] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.305 s, sync=0.001 s, total=0.310 s; sync files=4, longest=0.001 s, average=0.001 s; distance=2 kB, estimate=1360 kB
+2023-12-29 12:07:17.727 CST [2808] LOG:  received smart shutdown request
+2023-12-29 12:07:17.733 CST [2808] LOG:  background worker "logical replication launcher" (PID 2814) exited with exit code 1
+2023-12-29 12:07:17.734 CST [2809] LOG:  shutting down
+2023-12-29 12:07:17.735 CST [2809] LOG:  checkpoint starting: shutdown immediate
+2023-12-29 12:07:17.742 CST [2809] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.008 s; sync files=4, longest=0.001 s, average=0.001 s; distance=3 kB, estimate=1224 kB
+2023-12-29 12:07:17.752 CST [2808] LOG:  database system is shut down

@@ -1,0 +1,1 @@
+/opt/homebrew/Cellar/postgresql@15/15.5_1/bin/postgres "-D" "/Users/wangxingyuan/Desktop/FourthFirst/multimedia-final-backend/db"
