@@ -93,7 +93,8 @@ server.listen(PORT, () => {
 
 app.use(cors())
 app.post('/api/messages', (req, res) => {
-  const selectQuery = 'SELECT * FROM message';
+  const roomId = req.body.room
+  const selectQuery = 'SELECT * FROM message WHERE room_id = ' + roomId;
   pool.query(selectQuery, (err, result) => {
     if (err) {
       console.error('Error retrieving messages:', err);
