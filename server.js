@@ -33,7 +33,6 @@ const io = new Server(server, {
   });
 
 io.on('connection', (socket) => {
-  //   console.log(`Connected client with ID: ${socket.id}`);
   socket.on('message', ({
     'text': text,
     'from' : userId,
