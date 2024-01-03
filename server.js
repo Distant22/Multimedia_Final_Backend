@@ -12,7 +12,7 @@ const pool = new Pool({
   host: 'db',
   database: 'postgres',
   password: 'postgres',
-  port: 3211,
+  port: 5432,
 })
 
 pool.query('SELECT NOW()', (err, res) => {
