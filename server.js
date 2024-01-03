@@ -63,6 +63,7 @@ io.on('connection', (socket) => {
     'room' : roomId,
   }) => {
 
+    console.log("I receive message. text:",text)
     const insertQuery = 'INSERT INTO message (room_id, text, sender) VALUES ($1, $2, $3)';
     const values = [roomId, text, userId]; 
 
