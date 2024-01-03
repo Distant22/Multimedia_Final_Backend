@@ -95,10 +95,10 @@ server.listen(PORT, () => {
 app.use(cors())
 app.post('/api/messages', (req, res) => {
   const roomId = req.body.room
-  const selectQuery = 'SELECT * FROM message WHERE room_id = ' + roomId;
+  const selectQuery = 'SELECT * FROM message WHERE room_id = ' + String(roomId);
   pool.query(selectQuery, (err, result) => {
     if (err) {
-      console.error('Error retrieving messages:', err);
+      console.log('Error retrieving messages:', err);
       res.status(500).json({ error: 'Internal server error' });
     } else {
       res.status(200).json(result.rows);
