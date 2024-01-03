@@ -95,8 +95,9 @@ server.listen(PORT, () => {
 app.use(cors())
 app.post('/api/messages', (req, res) => {
   const roomId = req.body.room
-  const selectQuery = 'SELECT * FROM message WHERE room_id = ' + String(roomId);
-  pool.query(selectQuery, (err, result) => {
+  const selectQuery = 'SELECT * FROM message WHERE room_id = $1';
+  const values = [roomId];
+  pool.query(selectQuery, values, (err, result) => {
     if (err) {
       console.log('Error retrieving messages:', err);
       res.status(500).json({ error: 'Internal server error' });
