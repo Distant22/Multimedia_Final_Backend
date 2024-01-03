@@ -21,9 +21,27 @@ const connectToDB = async () => {
 
     await pool.query('SELECT NOW()');
     console.log('Connected to PostgreSQL');
+
+    await initializeDB(pool);
   } catch (error) {
     console.error('Error connecting to PostgreSQL:', error.message);
     setTimeout(connectToDB, 3000); // Retry connection after 3 seconds
+  }
+};
+
+const initializeDB = async (pool) => {
+  try {
+    const createQueries = [
+      "CREATE TABLE message (id SERIAL PRIMARY KEY, text TEXT NOT NULL, sender TEXT NOT NULL);",
+      "GRANT ALL PRIVILEGES ON TABLE message TO dt22;"
+    ];
+
+    for (const query of createQueries) {
+      await pool.query(query);
+      console.log('Executed query:', query);
+    }
+  } catch (error) {
+    console.error('Error initializing database:', error.message);
   }
 };
 
@@ -31,7 +49,7 @@ connectToDB();
 
 const io = new Server(server, {
     cors: {
-      origin: 'http://localhost:3000',
+      origin: 'https://multimedia-final-frontend.vercel.app',
       methods: ['GET', 'POST'],
       allowedHeaders: ['Content-Type', 'Authorization'],
       credentials: true,
@@ -61,7 +79,6 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
-    // console.log(`Client with ID ${socket.id} disconnected`);
   });
 });
 
