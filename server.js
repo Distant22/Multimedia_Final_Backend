@@ -7,21 +7,27 @@ const app = express();
 const server = http.createServer(app);
 const { Pool } = require('pg');
 
-const pool = new Pool({
-  user: 'postgres',
-  host: 'db',
-  database: 'messages',
-  password: '1234',
-  port: 5432,
-})
+let pool;
 
-pool.query('SELECT NOW()', (err, res) => {
-  if (err) {
-    console.error('Error connecting to PostgreSQL:', err);
-  } else {
-    console.log('Connected to PostgreSQL:', res.rows[0].now);
+const connectToDB = async () => {
+  try {
+    pool = new Pool({
+      user: 'postgres',
+      host: 'db',
+      database: 'messages',
+      password: '1234',
+      port: 5432,
+    });
+
+    await pool.query('SELECT NOW()');
+    console.log('Connected to PostgreSQL');
+  } catch (error) {
+    console.error('Error connecting to PostgreSQL:', error.message);
+    setTimeout(connectToDB, 3000); // Retry connection after 3 seconds
   }
-});
+};
+
+connectToDB();
 
 const io = new Server(server, {
     cors: {
