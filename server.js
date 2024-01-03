@@ -31,6 +31,8 @@ const connectToDB = async () => {
 
 const initializeDB = async (pool) => {
   try {
+
+    await pool.query('DROP TABLE IF EXISTS message');
     const createQueries = [
       "CREATE TABLE message (id SERIAL PRIMARY KEY, text TEXT NOT NULL, sender TEXT NOT NULL, room_id TEXT NOT NULL);",
       "GRANT ALL PRIVILEGES ON TABLE message TO dt22;"
