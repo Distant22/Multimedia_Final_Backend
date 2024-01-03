@@ -8,12 +8,13 @@ const server = http.createServer(app);
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'dt22',
-  host: '127.0.0.1',
-  database: 'postgres',
-  password: '1234', // Use the password you set for the 'root' user
-  port: 5432,
+  user: process.env.DATABASE_USER,
+  host: process.env.DATABASE_HOST,
+  database: process.env.DATABASE_NAME,
+  password: process.env.DATABASE_PASSWORD,
+  port: process.env.DATABASE_PORT,
 });
+
 
 // Test the connection
 pool.query('SELECT NOW()', (err, res) => {

@@ -1,23 +1,25 @@
 version: '3.8'
 
 services:
-  postgresql:
-    image: postgres:latest
-    container_name: postgresql
+  node-app:
+    build: .
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
     environment:
-      POSTGRES_DB: messages
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: test1234
+      - PORT=8081
+      - DATABASE_USER=dt22
+      - DATABASE_HOST=postgres
+      - DATABASE_NAME=postgres
+      - DATABASE_PASSWORD=1234
+      - DATABASE_PORT=5432
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: dt22
+      POSTGRES_PASSWORD: 1234
     ports:
       - "5432:5432"
-    volumes:
-      - ./init-scripts:/docker-entrypoint-initdb.d
-
-  express-app:
-    build:
-      context: .
-      dockerfile: Dockerfile  
-    ports:
-      - "8081:8080" 
-    depends_on:
-      - postgresql
