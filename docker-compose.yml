@@ -10,17 +10,17 @@ services:
     depends_on:
       - db
     environment:
-      - PGUSER=postgres
-      - PGHOST=db
-      - PGDATABASE=messages
-      - PGPASSWORD=1234
+      - PGUSER=dt22
+      - PGHOST=dpg-cmapu96n7f5s7395nsjg-a
+      - PGDATABASE=messages_9wpq
+      - PGPASSWORD=vJqkuku8GiRl3boMEgI9YcFoJ0kZiUEA
       - PGPORT=5432
 
   db:
     image: postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: messages
+      POSTGRES_USER: dt22
+      POSTGRES_PASSWORD: vJqkuku8GiRl3boMEgI9YcFoJ0kZiUEA
+      POSTGRES_DB: messages_9wpq
     ports:
       - "5432:5432"

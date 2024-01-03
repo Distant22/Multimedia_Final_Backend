@@ -12,10 +12,10 @@ let pool;
 const connectToDB = async () => {
   try {
     pool = new Pool({
-      user: 'postgres',
-      host: 'db',
-      database: 'messages',
-      password: '1234',
+      user: 'dt22',
+      host: 'dpg-cmapu96n7f5s7395nsjg-a',
+      database: 'messages_9wpq',
+      password: 'vJqkuku8GiRl3boMEgI9YcFoJ0kZiUEA',
       port: 5432,
     });
 
