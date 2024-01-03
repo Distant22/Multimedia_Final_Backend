@@ -32,7 +32,7 @@ const connectToDB = async () => {
 const initializeDB = async (pool) => {
   try {
     const createQueries = [
-      "CREATE TABLE message (id SERIAL PRIMARY KEY, text TEXT NOT NULL, sender TEXT NOT NULL);",
+      "CREATE TABLE message (id SERIAL PRIMARY KEY, text TEXT NOT NULL, sender TEXT NOT NULL, room_id TEXT NOT NULL);",
       "GRANT ALL PRIVILEGES ON TABLE message TO dt22;"
     ];
 
