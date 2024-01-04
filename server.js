@@ -22,7 +22,6 @@ const connectToDB = async () => {
 
     await pool.query('SELECT NOW()');
     console.log('Connected to PostgreSQL');
-
     await initializeDB(pool);
   } catch (error) {
     console.error('Error connecting to PostgreSQL:', error.message);
